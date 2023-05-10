@@ -1,17 +1,11 @@
 import * as readline from "readline";
-import { OpenAIConfig, OpenAIModel, Personalities, Soul } from "../src";
+import { OpenAIConfig, OpenAIModel, Soul } from "../src";
 
 const config = new OpenAIConfig({
   model: OpenAIModel.gpt_4,
 });
 
-let personality = Personalities.Samantha;
-personality = Personalities.Dustin;
-personality = Personalities.Page;
-personality = Personalities.Reggie;
-personality = Personalities.Eileen;
-
-personality = {
+const personality = {
   name: "Steve Jobs",
   shortPersonality: "Steve Jobs at his most inspirational",
   longPersonality: `An inspirational version of Steve Jobs, drawing on the Steve Jobs archive source material.
