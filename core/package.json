@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "test-example": "ts-node examples/example.ts"
+    "test-example": "ts-node examples/example.ts",
+    "test-example-steve": "ts-node examples/example2.ts"
   },
   "files": [
     "dist"

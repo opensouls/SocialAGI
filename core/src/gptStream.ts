@@ -75,12 +75,12 @@ interface OpenaiMessage {
 }
 
 export class GPT extends EventEmitter {
-  public OpenAIConfig: OpenAIConfig;
+  public openAIConfig: OpenAIConfig;
   private stream: any = null;
 
   constructor(config: OpenAIConfig) {
     super();
-    this.OpenAIConfig = config;
+    this.openAIConfig = config;
   }
 
   private emitTagEvent(tag: Tag) {
@@ -116,8 +116,8 @@ export class GPT extends EventEmitter {
     systemPrompt: string,
     remembrancePrompt: string
   ) {
-    const apiKey = this.OpenAIConfig.apiKey;
-    const model = this.OpenAIConfig.model;
+    const apiKey = this.openAIConfig.apiKey;
+    const model = this.openAIConfig.model;
 
     const configuration = new Configuration({ apiKey });
     const openaiApi = new OpenAIApi(configuration);
@@ -232,7 +232,10 @@ export class GPT extends EventEmitter {
         content: systemPrompt,
       },
     ].concat(finalMessages);
-    if (truncatedMessages.length > 0) {
+    if (
+      truncatedMessages.length > 0 &&
+      this.openAIConfig.model === OpenAIModel.gpt_3_5_turbo
+    ) {
       finalMessages = finalMessages.concat({
         role: "system",
         content: remembrancePrompt,
@@ -242,7 +245,7 @@ export class GPT extends EventEmitter {
   }
 
   private extractTags(content: string): Tag[] {
-    const regex = /<([A-Za-z0-9\s]+)>(.*?)<\/\1>/g;
+    const regex = /<([A-Za-z0-9\s_]+)>(.*?)<\/\1>/g;
     const matches = content.matchAll(regex);
     const extractedTags = [];
 
