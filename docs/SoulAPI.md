@@ -144,15 +144,13 @@ The returned `EventEmitter` can emit the following events:
 #### Example
 
 ```typescript
-const events = soul.execute('REPLY', {user: 'kevin', content: 'hi'});
+const replyEvents = soul.execute('REPLY', {user: 'kevin', content: 'hi'});
 
-events.on('progress', (progressData) => {
+replyEvents.on('progress', (progressData) => {
   console.log('Progress:', progressData);
 });
 
-events.on('end', (result) => {
-  console.log('Result:', result);
-});
+const end = await replyEvents;
 ```
 
 
