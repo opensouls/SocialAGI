@@ -159,7 +159,7 @@ const end = await replyEvents;
 
 ## Core concepts
 
-Sure, I'd be happy to help. The `socialagi` library, based on your description, appears to revolve around a few core concepts:
+The `socialagi` library, based on your description, appears to revolve around a few core concepts:
 
 1. **Soul**: This is the central class in `socialagi` and acts as a representation of an AI entity's knowledge and behavior. The `Soul` holds internal information, attaches with mental models, learns directives, and recalls its state.
 
@@ -199,7 +199,6 @@ Through this reactive model of updating and learning, `socialagi` can replicate 
 
 
 
-Certainly, let's upgrade the `socialagi` library documentation to a more comprehensive, world-class standard. Here is a sample structure:
 
 ---
 
@@ -369,7 +368,6 @@ Understanding this lifecycle can help you better
 
 
 
-That's correct, with meta-learning, the strategy should determine not only the `shouldUpdate` and `update` methods, but also the name of the mental model being created. This strategy might use specific conditions to decide the name and other parameters of the mental model. Let's redefine the `LearningStrategy` interface and update our `metaLearn` usage example:
 
 ```typescript
 // Redefining the Strategy Interface for creating Mental Models
